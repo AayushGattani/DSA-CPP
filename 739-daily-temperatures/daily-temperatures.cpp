@@ -14,9 +14,9 @@ public:
                 rt[i] = 0;
             } else {
                 rt[i] = st.top() - i;
-                st.push(i);
+            
             }
-            st.push(i);
+                st.push(i);
         }
         return rt;
     }
