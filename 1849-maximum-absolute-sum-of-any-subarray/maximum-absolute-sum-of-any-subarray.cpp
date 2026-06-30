@@ -1,17 +1,21 @@
 class Solution {
 public:
     int maxAbsoluteSum(vector<int>& nums) {
-        int endmax=nums[0];
-        int endmin=nums[0];
-        int result=abs(nums[0]);
         int bestending=nums[0];
+        int minending=nums[0];
+        int minsum=nums[0];
+        int maxsum=nums[0];
         for(int i=1;i<nums.size();i++){
-            endmax=max(nums[i],endmax+nums[i]);
-            endmin=min(nums[i],endmin+nums[i]);
-            bestending= max(endmax,abs(endmin));
-            result=max(result,bestending);
+            int v1=nums[i];
+            int v2=bestending+nums[i];
+            int v3=minending+nums[i];
+            bestending=max(v1,max(v2,v3));
+            minending= min(v1,min(v2,v3));
+            minsum=min(minsum,minending);
+            maxsum=max(maxsum,bestending);
+
         }
-        return result;
+        return max(abs(minsum),maxsum);
         
     }
 };
