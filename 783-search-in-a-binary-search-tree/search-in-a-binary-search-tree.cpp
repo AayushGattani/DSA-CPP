@@ -20,7 +20,7 @@ public:
                 root=root->left;
             }
         }
-        return root?root:NULL;
+        return root;
 
         
     }
